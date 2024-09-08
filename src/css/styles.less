@@ -1,0 +1,144 @@
+/* Estilos generales (computadora) */
+.hamburger {
+  display: inline-block;
+  margin-top: 20px; 
+}
+
+.logo {
+  display: inline-block;
+  margin-top: 20px; 
+  margin-left: 25px; /* Mueve el logo un poco hacia la derecha */
+}
+
+.hot-topics-nav {
+  padding: 10px;
+  background-color: #1c1f3b; /* Azul oscuro */
+  border-radius: 8px;
+}
+
+.nav-row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 10px 20px;
+  background-color: #1c1f3b;
+  border-radius: 8px;
+}
+
+.topic-button {
+  padding: 8px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 14px;
+  width: 120px;
+  margin: 10px 5px; /* Margen ajustado */
+}
+
+.topic-button:hover {
+  background-color: #0056b3;
+}
+
+.img-menu {
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover;
+  display: inline-block;
+}
+
+.play {
+  background-color: #87CEEB;
+  border-radius: 25px;
+  padding: 10px 55px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.play:hover {
+  background-color: #0c9fcf;
+}
+
+.redes {
+  margin-left: auto; /* Empuja las redes sociales hacia la derecha */
+  display: flex; /* Coloca los enlaces en línea horizontal */
+  justify-content: flex-end; /* Alinea el contenido hacia la derecha */
+  align-items: center; /* Alinea los elementos verticalmente */
+  gap: 15px; /* Espacio entre los iconos */
+  padding-right: 80px; /* Ajusta el espacio a la derecha */
+}
+
+.redes a {
+  color: #007bff; 
+  text-decoration: none; 
+  font-size: 20px; 
+  transition: color 0.3s ease; /* Añade una transición suave al cambiar el color */
+  display: inline-flex; /* Asegura que los enlaces estén alineados en línea horizontal */
+  align-items: center; /* Alinea verticalmente el ícono y el texto */
+}
+
+.redes a:hover {
+  color: #0056b3;
+}
+
+/* Adaptación a tabletas (pantallas de 768px a 1024px) */
+@media (max-width: 1024px) {
+  .nav-row {
+    justify-content: center; /* Centraliza los botones */
+    padding: 10px 10px; /* Reduce el padding lateral */
+  }
+
+  .topic-button {
+    width: 100px; /* Reduce el ancho */
+    font-size: 13px; /* Ajusta el tamaño de fuente */
+  }
+
+  .play {
+    padding: 8px 45px; /* Ajusta el tamaño del botón */
+  }
+
+  .redes {
+    padding-right: 40px; /* Ajusta el espacio a la derecha para tabletas */
+  }
+
+  .redes a {
+    font-size: 18px; /* Reduce el tamaño de los enlaces en tabletas */
+  }
+}
+
+/* Adaptación a móviles (pantallas de 767px o menos) */
+@media (max-width: 767px) {
+  .logo {
+    margin-left: 10px; /* Reduce el margen para móviles */
+  }
+
+  .nav-row {
+    flex-direction: column; /* Los botones se apilan en columnas */
+    align-items: center; /* Centraliza los botones */
+    padding: 10px;
+  }
+
+  .topic-button {
+    width: 100%; 
+    margin: 5px 0; 
+    font-size: 12px; 
+  }
+
+  .play {
+    padding: 8px 35px; 
+  }
+
+  .redes {
+    justify-content: center; /* Centraliza las redes sociales en móviles */
+    padding-right: 0; /* Elimina el padding derecho en móviles */
+  }
+
+  .redes a {
+    font-size: 16px; /* Ajusta el tamaño de los enlaces en móviles */
+  }
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/src/css/styles.css">
+  <title>Caracol</title>
+  <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+  <script src="./src/js/main.js" defer></script>
+  <script src="./src/audio/audioPlayer.js" defer></script>
+</head>
+<body>
+    
+  <div id="app"></div>
+ 
+
+  <!-- Handlebars -->
+  <script id="template" type="text/x-handlebars-template">
+
+    <div class="hamburger">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        <path d="M4 6l16 0" />
+        <path d="M4 12l16 0" />
+        <path d="M4 18l16 0" />
+      </svg>
+    </div>
+
+    <!-- logo -->
+    <a href="{{logo.href}}" alt="{{logo.alt}}" class="logo">
+      <img src="{{logo.image.src}}" width="{{logo.image.width}}" height="{{logo.image.height}}" alt="{{logo.alt}}">
+    </a>
+
+      <!-- nav1-->
+<nav class="hot-topics-nav">
+  <div class="nav-row">
+    {{#each hotTopics}}
+      <button 
+        onclick="window.open('{{this.url}}', '_blank')" 
+        class="nav-button topic-button">
+        {{this.title}}
+      </button>
+      <button 
+        onclick="window.open('{{this.url}}', '_blank')" 
+        class="nav-button topic-button">
+        {{this.title}}
+      </button>
+    {{/each}}
+  </div>
+</nav>
+
+
+    
+    
+    
+    <ul>
+      {{#each actions.items}}
+        <li class="redes">
+          <a href="{{shareHref}}" target="_blank">{{body}}</a>
+        </li>
+      {{/each}}
+    </ul>
+    <img 
+  src="{{pageLead.image.src}}" 
+  alt="{{pageLead.alt}}" 
+  width="{{pageLead.image.width}}" 
+  height="{{pageLead.image.height}}" 
+  class="img-menu"
+/>
+    
+<!-- nav con "breadcrumbs" como botón -->
+<nav class="hot-topics-nav">
+  <div class="nav-container">
+    <!-- Tendencia como botón -->
+    <button 
+      onclick="window.open('{{breadcrumbs.href}}', '_blank')" 
+      class="nav-button topic-button">
+      {{breadcrumbs.body}}
+    </button>
+    
+    <!-- Otros botones del each -->
+    {{#each hotTopics}}
+      <button 
+        onclick="window.open('{{this.url}}', '_blank')" 
+        class="nav-button topic-button">
+        {{this.title}}
+      </button>
+    {{/each}}
+  </div>
+</nav>
+
+    
+<!-- audio -->
+<div class="audio-container">
+  {{#each audioPlayer}}
+    <div class="audio-item">
+      <img src="https://example.com/audio-thumbnail.jpg" alt="Audio Thumbnail" class="audio-thumbnail" />
+      <h3>{{this.audioTitle}}</h3>
+      <button type="button" class="play" data-audio-id="audio{{@index}}">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-player-play-filled" width="12" height="12" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M6 4v16a1 1 0 0 0 1.524 .852l13 -8a1 1 0 0 0 0 -1.704l-13 -8a1 1 0 0 0 -1.524 .852z" stroke-width="0" fill="currentColor" />
+        </svg> Escuchar audio
+      </button>
+      <audio id="audio{{@index}}" src="{{this.audioUrl}}"></audio>
+    </div>
+  {{/each}}
+</div>
+
+
+     
+  </script>
+</body>
+</html>
